@@ -1,8 +1,8 @@
 
 这是一个typescript序列化工具。相比于JavaScript的JSON系列化，该工具支持Map类型序列化 支持循环引用的序列化
 
-支持typescript所有类型
-```bash
+支持typescript所有类型(当然啦 不包括function)
+```typescript
 class BaseObj{
 
     i:number=0;
@@ -24,7 +24,7 @@ factory.registerJsonClass(BaseObj);
 ```
 
 如果想指定序列化的属性 可以使用装饰器
-```
+```typescript
 class Vector{
     @serialize()
     x:int=0;
@@ -37,7 +37,7 @@ class Vector{
 上面例子只会对xy序列化
 
 支持存在循环引用的类型 反序列化之后也保留这引用关系
-```
+```typescript
 class Node{
     @serialize({type:Node})
     prev:Node|undefined
@@ -50,14 +50,10 @@ class List{
     first:Node|undefined
 
     constructor(){
-        this.first=new Node();
-        const next=new Node();
-        this.first.next=next;
-        next.prev=this.first;
     }
 }
 
- let obj=new List();
+    let obj=new List();
     
     let first=new Node();
     let next=new Node();
