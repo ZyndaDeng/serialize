@@ -2,6 +2,7 @@ import { SerializeFactory, serialize } from "../common/serialize";
 import { serializeObj } from "./testBase";
 
 class Vector{
+    //标记了serialize 序列化只会对已经标记的字段序列化
     @serialize()
     x:int=0;
     @serialize()

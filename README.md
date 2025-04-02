@@ -34,7 +34,7 @@ class Vector{
     str:string="this will not serialize" 
 }
 ```
-上面例子只会对xy序列化
+上面例子只会对xy序列化 要对字段有更细致的调整 可参考例子[testDecAdv](./ts/tests/testDecAdv.ts)
 
 支持存在循环引用的类型 反序列化之后也保留这引用关系
 ```typescript
